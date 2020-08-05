@@ -10,4 +10,16 @@ Structure of MG-Net.
 Segmentation with uncertainty estimation.
 
 ![refinement](./pictures/refinement.png)
+
 Using I-DRLSE for interactive refinement.
+
+# Requirements
+Install the required packages by ''. Some important required packages include:
+* [Pytorch]
+* [PyMIC]
+* [GeosTK]
+
+# How to use
+## Demo of MG-Net
+
+## Demo of I-DRLSE
