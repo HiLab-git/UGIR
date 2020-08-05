@@ -4,14 +4,14 @@ This repository will provide the code for "Uncertainty-Guided Efficient Interact
 The code contains two modules: 1), a novel CNN based on convolution in Multiple Groups (MG-Net) that simultaneously obtains an intial segmentation and its uncertainty estimation. 2), Interaction-based level set for fast refinement, which is an extention of the DRLSE algorithm and named as I-DRLSE. 
 
 ![mg_net](./pictures/mgnet.png)
-Structure of MG-Net.
+Fig. 1. Structure of MG-Net.
 
 ![uncertainty](./pictures/uncertainty.png)
-Segmentation with uncertainty estimation.
+Fig. 2. Segmentation with uncertainty estimation.
 
 ![refinement](./pictures/refinement.png)
 
-Using I-DRLSE for interactive refinement.
+Fig. 3. Using I-DRLSE for interactive refinement.
 
 # Requirements
 Install the required packages by:
@@ -44,5 +44,7 @@ python show_uncertanty.py
 To see a demo of I-DRLSE, run the following commands:
 ```
 cd util/level_set
-python demo/demo_interactive.py 
+python demo/demo_idrlse.py 
 ```
+The result should look like the following.
+![i-drlse](./pictures/i-drlse.png)

@@ -19,11 +19,17 @@ def show_leve_set(fig, phi):
     ax1.plot_surface(X, Y, phi, rstride=2, cstride=2, color='r', linewidth=0, alpha=0.6, antialiased=True)
     ax1.contour(X, Y, phi, 0, colors='g', linewidths=2)
 
-def show_image_and_segmentation(fig, img, contours):
+def show_image_and_segmentation(fig, img, contours, seeds = None):
     ax2 = fig.add_subplot(111)
     ax2.imshow(img, interpolation='nearest', cmap=plt.cm.gray)
     for n, contour in enumerate(contours):
-        ax2.plot(contour[:, 1], contour[:, 0], linewidth=2)
+        ax2.plot(contour[:, 1], contour[:, 0], linewidth=2, color='green')
+    if(seeds is not None):
+        h_idx, w_idx = np.where(seeds[0] > 0)
+        ax2.plot(w_idx, h_idx, linewidth=2, color='red')
+        h_idx, w_idx = np.where(seeds[1] > 0)
+        ax2.plot(w_idx, h_idx, linewidth=2, color='blue')
+    ax2.axis('off')
 
 def get_distance_based_likelihood(img, seed, D):
     if(seed.sum() > 0):
@@ -53,16 +59,15 @@ def interactive_level_set(img, seg, seed_f, seed_b, param, display = True, inten
 
     Pfexp = np.exp(Df); Pbexp = np.exp(Db)
     Pf = Pfexp / (Pfexp + Pbexp)
-    if(display):
-      plt.subplot(1,3,1)
-      plt.imshow(Df)
-      plt.subplot(1,3,2)
-      plt.imshow(Db)
-      plt.subplot(1,3,3)
-      plt.imshow(Pf)
-      plt.show()
+    # if(display):
+    #   plt.subplot(1,3,1)
+    #   plt.imshow(Df)
+    #   plt.subplot(1,3,2)
+    #   plt.imshow(Db)
+    #   plt.subplot(1,3,3)
+    #   plt.imshow(Pf)
+    #   plt.show()
     
-    # img_d = ndimage.interpolation.zoom(img, 0.5)
     [H, D] = img.shape
     zoom = [64.0/H, 64.0/D]
     img_d = ndimage.interpolation.zoom(img, zoom)
@@ -119,15 +124,21 @@ def interactive_level_set(img, seg, seed_f, seed_b, param, display = True, inten
 
         fig1.clf()
         init_contours =  measure.find_contours(seg, 0.5)
-        show_image_and_segmentation(fig1, img, init_contours)
+        show_image_and_segmentation(fig1, img, init_contours, [seed_f, seed_b])
+        fig1.suptitle("(a) Initial Segmentation")
+        # fig1.savefig("init_seg.png")
 
         fig2.clf()
         final_contours = measure.find_contours(finalLSF, 0)
         show_image_and_segmentation(fig2, img, final_contours)
+        fig2.suptitle("(b) Refined Result")
+        # fig2.savefig("refine_seg.png")
 
         fig3.clf()
         show_leve_set(fig3, finalLSF)
-        plt.pause(100)
+        fig3.suptitle("(c) Final Level Set Function")
+        # fig3.savefig("levelset_func.png")
+        plt.pause(10)
         plt.show()
     return finalLSF > 0, runtime
 
