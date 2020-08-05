@@ -14,12 +14,35 @@ Segmentation with uncertainty estimation.
 Using I-DRLSE for interactive refinement.
 
 # Requirements
-Install the required packages by ''. Some important required packages include:
-* [Pytorch]
-* [PyMIC]
-* [GeosTK]
+Install the required packages by:
+```
+pip install -r requirements.txt
+```
+Some important required packages include:
+* [Pytorch][torch_link] version >=1.0.1
+* [PyMIC][pymic_link], a pytorch-based toolkit for medical image computing.
+* [GeodisTK][geodistk_link], geodesic distance transform toolkit for 2D and 3D images.
+
+[torch_link]:https://pytorch.org/
+[pymic_link]:https://github.com/HiLab-git/PyMIC
+[geodistk_link]:https://github.com/taigw/GeodisTK
 
 # How to use
+After installing the required packages, add the path of `UGIR` to the PYTHONPATH environment variable. 
 ## Demo of MG-Net
+1. Run the following commands to use MG-Net for simultanuous segmentation and uncertainty estimation. 
+```
+cd uncertainty_demo
+python ../util/custom_net_run.py test config/mgnet.cfg
+```
+2. The results will be saved to `uncertainty_demo/result`. To get a visualization of the uncertainty estimation in a example slice, run: 
+```
+python show_uncertanty.py
+```
 
 ## Demo of I-DRLSE
+To see a demo of I-DRLSE, run the following commands:
+```
+cd util/level_set
+python demo/demo_interactive.py 
+```
