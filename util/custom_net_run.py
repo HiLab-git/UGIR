@@ -16,7 +16,7 @@ local_net_dict = {
 def main():
     if(len(sys.argv) < 3):
         print('Number of arguments should be 3. e.g.')
-        print('    python train_infer.py train config.cfg')
+        print('    python custom_net_run.py train config.cfg')
         exit()
     stage    = str(sys.argv[1])
     cfg_file = str(sys.argv[2])
