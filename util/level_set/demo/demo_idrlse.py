@@ -1,7 +1,6 @@
 import time
 import os
 import numpy as np
-import geodesic_distance
 import matplotlib.pyplot as plt
 import scipy.ndimage.filters as filters
 from PIL import Image

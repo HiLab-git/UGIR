@@ -2,9 +2,8 @@
 from __future__ import print_function, division
 
 import sys
-from pymic.net_run.net_run import TrainInferAgent
-from pymic.net_run.net_factory import net_dict
 from pymic.util.parse_config import parse_config
+from pymic.net_run.net_run_agent import NetRunAgent
 from network.unet2dres import UNet2DRes
 from network.MGNet import MGNet
 
@@ -13,12 +12,6 @@ local_net_dict = {
     'MGNet': MGNet
 }
 
-def get_network(params):
-    net_type = params['net_type']
-    if(net_type in local_net_dict):
-        return local_net_dict[net_type](params)
-    else:
-        return net_dict[net_type](params)
     
 def main():
     if(len(sys.argv) < 3):
@@ -30,12 +23,8 @@ def main():
     config   = parse_config(cfg_file)
 
     # use custormized CNN
-    net_param = config['network']
-    config['network'] = net_param
-    net    = get_network(net_param)
-
-    agent  = TrainInferAgent(config, stage)
-    agent.set_network(net)
+    agent  = NetRunAgent(config, stage)
+    agent.set_network_dict(local_net_dict)
     agent.run()
 
 if __name__ == "__main__":
