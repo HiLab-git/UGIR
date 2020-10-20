@@ -1,5 +1,8 @@
 ### UGIR: Uncertainty-Guided Interactive Refinement for Segmentation
-This repository provides the code for "Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices" accepted by MICCAI 2020. The paper can be found at: https://arxiv.org/abs/2007.00833.
+This repository provides the code for the following MICCAI 2020 paper ([Arxiv link][arxiv_link]). If you use some modules of our repository, please cite this paper. 
+
+*Guotai Wang, Michael Aertsen, Jan Deprest, Sébastien Ourselin, Tom Vercauteren, Shaoting Zhang:
+Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices. MICCAI (4) 2020: 279-288. 
 
 The code contains two modules: 1), a novel CNN based on convolution in Multiple Groups (MG-Net) that simultaneously obtains an intial segmentation and its uncertainty estimation. 2), Interaction-based level set for fast refinement, which is an extention of the DRLSE algorithm and named as I-DRLSE. 
 
@@ -24,6 +27,7 @@ Follow official guidance to install [Pytorch][torch_link]. Install the other req
 pip install -r requirements.txt
 ```
 
+[arxiv_link]:https://arxiv.org/abs/2007.00833
 [torch_link]:https://pytorch.org/
 [pymic_link]:https://github.com/HiLab-git/PyMIC
 [geodistk_link]:https://github.com/taigw/GeodisTK
