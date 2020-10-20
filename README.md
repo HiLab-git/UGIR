@@ -1,6 +1,6 @@
 ### UGIR: Uncertainty-Guided Interactive Refinement for Segmentation
 This repository provides the code for the following MICCAI 2020 paper ([Arxiv link][arxiv_link]). If you use some modules of our repository, please cite this paper. 
-*Guotai Wang, Michael Aertsen, Jan Deprest, Sébastien Ourselin, Tom Vercauteren, Shaoting Zhang:
+* Guotai Wang, Michael Aertsen, Jan Deprest, Sébastien Ourselin, Tom Vercauteren, Shaoting Zhang:
 Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices. MICCAI (4) 2020: 279-288. 
 
 The code contains two modules: 1), a novel CNN based on convolution in Multiple Groups (MG-Net) that simultaneously obtains an intial segmentation and its uncertainty estimation. 2), Interaction-based level set for fast refinement, which is an extention of the DRLSE algorithm and named as I-DRLSE. 
