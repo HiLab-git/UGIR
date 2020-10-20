@@ -1,6 +1,5 @@
 ### UGIR: Uncertainty-Guided Interactive Refinement for Segmentation
 This repository provides the code for the following MICCAI 2020 paper ([Arxiv link][arxiv_link]). If you use some modules of our repository, please cite this paper. 
-
 *Guotai Wang, Michael Aertsen, Jan Deprest, Sébastien Ourselin, Tom Vercauteren, Shaoting Zhang:
 Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices. MICCAI (4) 2020: 279-288. 
 
