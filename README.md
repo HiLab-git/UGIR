@@ -18,7 +18,7 @@ Fig. 3. Using I-DRLSE for interactive refinement.
 ### Requirements
 Some important required packages include:
 * [Pytorch][torch_link] version >=1.0.1.
-* [PyMIC][pymic_link], a pytorch-based toolkit for medical image computing. Version 0.2 is required. 
+* [PyMIC][pymic_link], a pytorch-based toolkit for medical image computing. Version 0.2.3 is required. 
 * [GeodisTK][geodistk_link], geodesic distance transform toolkit for 2D and 3D images.
 
 Follow official guidance to install [Pytorch][torch_link]. Install the other required packages by:

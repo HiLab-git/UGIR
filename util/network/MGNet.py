@@ -5,8 +5,7 @@ import numpy as np
 from pymic.layer.activation import get_acti_func
 from pymic.layer.convolution import ConvolutionLayer, DepthSeperableConvolutionLayer
 from pymic.layer.deconvolution import DeconvolutionLayer, DepthSeperableDeconvolutionLayer
-from pymic.net.net2d.unet2dres import get_acti_func, get_deconv_layer, get_unet_block, PEBlock
-
+from network.unet2dres  import get_acti_func, get_deconv_layer, get_unet_block
 
 def interleaved_concate(f1, f2):
     f1_shape = list(f1.shape)
